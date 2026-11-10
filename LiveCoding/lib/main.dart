@@ -22,12 +22,35 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
-          brightness: Brightness.dark,
+          seedColor: const Color.fromARGB(255, 85, 76, 255), 
+          secondary: const Color(0xFF06B6D4), 
+          tertiary: const Color(0xFFEC4899), 
         )
       ),
       themeMode: ThemeMode.system,
       home: const ProfilePage(), 
+    );
+  }
+}
+
+class InfoTile extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String value;
+
+  const InfoTile({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(label),
+      subtitle: Text(value),
     );
   }
 }
@@ -90,12 +113,75 @@ class ProfilePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 24),
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                        child: Text('Kontak', style: textTheme.titleMedium),
+                      ),
+                      const InfoTile(
+                        icon: Icons.email,
+                        label: 'Email',
+                        value: 'Adylpandu@gmail.com',
+                      ),
+                      const InfoTile(
+                        icon: Icons.phone,
+                        label: 'Nomor HP',
+                        value: '0812-3456-7890',
+                      ),
+                      const InfoTile(
+                        icon: Icons.code,
+                        label: 'GitHub',
+                        value: 'github.com/adylpandu',
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                        child: Text('Keahlian & Hobi',
+                            style: textTheme.titleMedium),
+                      ),
+                      const InfoTile(
+                        icon: Icons.phone_android,
+                        label: 'Keahlian',
+                        value: 'Flutter & Dart',
+                      ),
+                      const InfoTile(
+                        icon: Icons.sports_esports,
+                        label: 'Hobi',
+                        value: 'Bermain game',
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 72), 
               ],
             ),
             )
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Terima kasih',
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Terima kasih telah melihat profil Adyl'),
+            ),
+          );
+        },
+        child: const Icon(Icons.favorite),
+      ),
     );
   }
 }
+
+
