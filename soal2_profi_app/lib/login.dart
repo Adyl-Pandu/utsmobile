@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -30,8 +32,9 @@ class LoginPage extends StatelessWidget {
 
             const SizedBox(height: 30),
 
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
               ),
@@ -39,9 +42,10 @@ class LoginPage extends StatelessWidget {
 
             const SizedBox(height: 15),
 
-            const TextField(
+            TextField(
+              controller: passwordController,
               obscureText: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Password',
                 border: OutlineInputBorder(),
               ),
@@ -53,22 +57,31 @@ class LoginPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Scaffold(
-                        body: Center(
-                          child: Text(
-                            'Success',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
+                  if (emailController.text == 'admin@gmail.com' &&
+                      passwordController.text == '12345') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Scaffold(
+                          body: Center(
+                            child: Text(
+                              'Success',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  );
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Email atau password salah'),
+                      ),
+                    );
+                  }
                 },
                 child: const Text('LOGIN'),
               ),
@@ -79,4 +92,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
