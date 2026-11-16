@@ -19,6 +19,29 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Profil Adyl Pandu'),
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Text(
+                nama,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profil'),
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Logout'),
+              onTap: () => Navigator.pushNamedAndRemoveUntil(
+                  context, '/login', (route) => false),
+            ),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -28,6 +51,22 @@ class ProfilePage extends StatelessWidget {
                 radius: 50,
                 backgroundImage: AssetImage('assets/images/foto.png'),
               ),
+              const SizedBox(height: 16),
+              Text(
+                nama,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'NIM $nim',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 12),
+              Text(
+                '$prodi - $kelas',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
