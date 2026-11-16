@@ -12,13 +12,12 @@
 
 - `LiveCoding/` : Soal 1, live coding halaman profil (StatelessWidget)
 - `soal2-profil-app/` : Soal 2, aplikasi Android Profil Mahasiswa
-- `screenshots/` : tangkapan layar aplikasi Soal 2
 
 ---
 
 ## Soal 2: Aplikasi Profil Mahasiswa
 
-- **Video presentasi YouTube:** (tempel link video di sini)
+- **Video presentasi YouTube:** https://youtu.be/n3pXBuTEYM0
 - **APK:** [GitHub Releases v1.0.0](tempel-link-releases-di-sini)
 
 ### Screenshot
