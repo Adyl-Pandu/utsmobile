@@ -31,17 +31,31 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late final TextEditingController _github;
 
   @override
-@override
-void initState() {
-  super.initState();
+  void initState() {
+    super.initState();
 
-  _nama = TextEditingController(text: widget.nama);
-  _nim = TextEditingController(text: widget.nim);
-  _prodi = TextEditingController(text: widget.prodi);
-  _kelas = TextEditingController(text: widget.kelas);
-  _bio = TextEditingController(text: widget.bio);
-  _email = TextEditingController(text: widget.email);
-  _hp = TextEditingController(text: widget.hp);
-  _github = TextEditingController(text: widget.github);
+    _nama = TextEditingController(text: widget.nama);
+    _nim = TextEditingController(text: widget.nim);
+    _prodi = TextEditingController(text: widget.prodi);
+    _kelas = TextEditingController(text: widget.kelas);
+    _bio = TextEditingController(text: widget.bio);
+    _email = TextEditingController(text: widget.email);
+    _hp = TextEditingController(text: widget.hp);
+    _github = TextEditingController(text: widget.github);
+  }
+
+  void _simpan() {
+  if (!_formKey.currentState!.validate()) return;
+
+  Navigator.pop(context, {
+    'nama': _nama.text.trim(),
+    'nim': _nim.text.trim(),
+    'prodi': _prodi.text.trim(),
+    'kelas': _kelas.text.trim(),
+    'bio': _bio.text.trim(),
+    'email': _email.text.trim(),
+    'hp': _hp.text.trim(),
+    'github': _github.text.trim(),
+  });
 }
 }
