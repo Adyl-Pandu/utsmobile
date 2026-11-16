@@ -57,5 +57,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
     'hp': _hp.text.trim(),
     'github': _github.text.trim(),
   });
+  }
+
+  @override
+  void dispose() {
+  _nama.dispose();
+  _nim.dispose();
+  _prodi.dispose();
+  _kelas.dispose();
+  _bio.dispose();
+  _email.dispose();
+  _hp.dispose();
+  _github.dispose();
+
+  super.dispose();
 }
 }
