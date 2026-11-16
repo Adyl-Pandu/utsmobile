@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({
-  super.key,
-  required this.nama,
-  required this.nim,
-  required this.prodi,
-  required this.kelas,
-  required this.bio,
-  required this.email,
-  required this.hp,
-  required this.github,
-});
+    super.key,
+    required this.nama,
+    required this.nim,
+    required this.prodi,
+    required this.kelas,
+    required this.bio,
+    required this.email,
+    required this.hp,
+    required this.github,
+  });
 
-final String nama, nim, prodi, kelas, bio, email, hp, github;
+  final String nama, nim, prodi, kelas, bio, email, hp, github;
 
   @override
   State<EditProfilePage> createState() => _EditProfilePageState();
@@ -21,6 +21,7 @@ final String nama, nim, prodi, kelas, bio, email, hp, github;
 
 class _EditProfilePageState extends State<EditProfilePage> {
   final _formKey = GlobalKey<FormState>();
+
   late final TextEditingController _nama;
   late final TextEditingController _nim;
   late final TextEditingController _prodi;
@@ -45,31 +46,40 @@ class _EditProfilePageState extends State<EditProfilePage> {
   }
 
   void _simpan() {
-  if (!_formKey.currentState!.validate()) return;
+    if (!_formKey.currentState!.validate()) return;
 
-  Navigator.pop(context, {
-    'nama': _nama.text.trim(),
-    'nim': _nim.text.trim(),
-    'prodi': _prodi.text.trim(),
-    'kelas': _kelas.text.trim(),
-    'bio': _bio.text.trim(),
-    'email': _email.text.trim(),
-    'hp': _hp.text.trim(),
-    'github': _github.text.trim(),
-  });
+    Navigator.pop(context, {
+      'nama': _nama.text.trim(),
+      'nim': _nim.text.trim(),
+      'prodi': _prodi.text.trim(),
+      'kelas': _kelas.text.trim(),
+      'bio': _bio.text.trim(),
+      'email': _email.text.trim(),
+      'hp': _hp.text.trim(),
+      'github': _github.text.trim(),
+    });
   }
 
   @override
   void dispose() {
-  _nama.dispose();
-  _nim.dispose();
-  _prodi.dispose();
-  _kelas.dispose();
-  _bio.dispose();
-  _email.dispose();
-  _hp.dispose();
-  _github.dispose();
+    _nama.dispose();
+    _nim.dispose();
+    _prodi.dispose();
+    _kelas.dispose();
+    _bio.dispose();
+    _email.dispose();
+    _hp.dispose();
+    _github.dispose();
 
-  super.dispose();
-}
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Edit Profil'),
+      ),
+    );
+  }
 }
