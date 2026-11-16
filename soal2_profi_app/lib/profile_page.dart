@@ -5,8 +5,19 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Text('tes'),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Profil Adyl Pandu')),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Text('tess')
+            ],
+          ),
+        )
+      )
     );
+    
   }
 }
