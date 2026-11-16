@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'profile_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -58,7 +59,7 @@ class LoginPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   if (emailController.text == 'admin@gmail.com' &&
-                    passwordController.text == '12345') {
+                      passwordController.text == '12345') {
                     Navigator.pushReplacementNamed(context, '/profile');
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -68,7 +69,7 @@ class LoginPage extends StatelessWidget {
                     );
                   }
                 },
-                child: LoginPage(),
+                child: const Text('LOGIN'),
               ),
             ),
           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,23 +12,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Profil Mahasiswa',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 132, 132, 132),
-          title: const Center(
-            child: Text(
-              'App Mahasiswa',
-              style: TextStyle(
-                color: Color.fromARGB(255, 24, 155, 255),
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        body: const LoginPage(),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.dark,
+        ),
+      ),
+      themeMode: ThemeMode.light,
+      initialRoute: '/login',
+      routes: {
+        '/login': (_) => const LoginPage(),
+        '/profile': (_) => const ProfilePage(),
+      },
     );
   }
 }
