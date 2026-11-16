@@ -20,6 +20,15 @@ final String nama, nim, prodi, kelas, bio, email, hp, github;
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  final _formKey = GlobalKey<FormState>();
+  late final TextEditingController _nama;
+  late final TextEditingController _nim;
+  late final TextEditingController _prodi;
+  late final TextEditingController _kelas;
+  late final TextEditingController _bio;
+  late final TextEditingController _email;
+  late final TextEditingController _hp;
+  late final TextEditingController _github;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
