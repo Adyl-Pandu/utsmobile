@@ -12,12 +12,14 @@ class ProfilePage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Text('tess')
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/images/foto.png'),
+              )
             ],
           ),
         )
       )
     );
-    
   }
 }
