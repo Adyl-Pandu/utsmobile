@@ -118,57 +118,121 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         ),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
+            body: SafeArea(
+        child: ListView(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              const CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('assets/images/foto.png'),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                nama,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'NIM $nim',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              const SizedBox(height: 12),
-              Text(
-                '$prodi - $kelas',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              const SizedBox(height: 12),
-              Text(bio, textAlign: TextAlign.center),
-              const SizedBox(height: 20),
-              Card(
-                child: Column(
-                  children: [
-                    ListTile(
-                      leading: const Icon(Icons.email),
-                      title: const Text('Email'),
-                      subtitle: Text(email),
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.phone),
-                      title: const Text('Nomor HP'),
-                      subtitle: Text(hp),
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.code),
-                      title: const Text('GitHub'),
-                      subtitle: Text(github),
-                    ),
-                  ],
+          children: [
+            Column(
+              children: [
+                const CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage('assets/images/foto.png'),
                 ),
+                const SizedBox(height: 16),
+                Text(
+                  nama,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  'NIM $nim',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  '$prodi - $kelas',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 12),
+                Text(bio, textAlign: TextAlign.center),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Card(
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: const Icon(Icons.email),
+                    title: const Text('Email'),
+                    subtitle: Text(email),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.phone),
+                    title: const Text('Nomor HP'),
+                    subtitle: Text(hp),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.code),
+                    title: const Text('GitHub'),
+                    subtitle: Text(github),
+                  ),
+                ],
               ),
-              const SizedBox(height: 72),
-            ],
-          ),
+            ),
+            const SizedBox(height: 12),
+            Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+                    child: Text(
+                      'Keahlian & Hobi',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.phone_android),
+                    title: Text('Flutter'),
+                    subtitle: Text('Membuat aplikasi mobile dengan Dart'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.web),
+                    title: Text('Web Dasar'),
+                    subtitle: Text('HTML, CSS, dan JavaScript'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.sports_esports),
+                    title: Text('Hobi'),
+                    subtitle: Text('Bermain game'),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+                    child: Text(
+                      'Riwayat Pendidikan',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.school),
+                    title: Text('S1 Teknik Informatika'),
+                    subtitle: Text('ITB Bina Sarana Global • 2024 - sekarang'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.menu_book),
+                    title: Text('SMA/SMK'),
+                    subtitle: Text('Smk PPI • 2021 - 2024'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.backpack),
+                    title: Text('SMP'),
+                    subtitle: Text('SMPN 3 Cikupa • 2018 - 2021'),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 72),
+          ],
         ),
       ),
     );
