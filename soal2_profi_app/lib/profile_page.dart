@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'edit_profile_page.dart';
+import 'theme_controller.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -49,12 +50,29 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  void _toggleTheme() {
+  themeNotifier.value = themeNotifier.value == ThemeMode.dark
+      ? ThemeMode.light
+      : ThemeMode.dark;
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profil Adyl Pandu'),
-      ),
+          title: const Text('Profil Adyl Pandu'),
+          actions: [
+            IconButton(
+              tooltip: 'Ganti tema',
+              icon: Icon(
+                Theme.of(context).brightness == Brightness.dark
+                    ? Icons.light_mode
+                    : Icons.dark_mode,
+              ),
+              onPressed: _toggleTheme,
+            ),
+          ],
+        ),
             drawer: Drawer(
         child: ListView(
           children: [
@@ -63,6 +81,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 nama,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
+            ),
+            SwitchListTile(
+              secondary: const Icon(Icons.dark_mode),
+              title: const Text('Mode Gelap'),
+              value: Theme.of(context).brightness == Brightness.dark,
+              onChanged: (_) => _toggleTheme(),
             ),
             ListTile(
               leading: const Icon(Icons.person),
@@ -93,10 +117,6 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _editProfil,
-        child: const Icon(Icons.edit),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -147,7 +167,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               const SizedBox(height: 72),
-              
             ],
           ),
         ),
