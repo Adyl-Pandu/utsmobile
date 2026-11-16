@@ -67,6 +67,27 @@ class ProfilePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 20),
+              Card(
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: const Icon(Icons.email),
+                      title: const Text('Email'),
+                      subtitle: Text(email),
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.phone),
+                      title: const Text('Nomor HP'),
+                      subtitle: Text(hp),
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.code),
+                      title: const Text('GitHub'),
+                      subtitle: Text(github),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
