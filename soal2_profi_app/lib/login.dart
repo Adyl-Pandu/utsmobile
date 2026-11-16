@@ -58,23 +58,8 @@ class LoginPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   if (emailController.text == 'admin@gmail.com' &&
-                      passwordController.text == '12345') {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Scaffold(
-                          body: Center(
-                            child: Text(
-                              'Success',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
+                    passwordController.text == '12345') {
+                    Navigator.pushReplacementNamed(context, '/profile');
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
@@ -83,7 +68,7 @@ class LoginPage extends StatelessWidget {
                     );
                   }
                 },
-                child: const Text('LOGIN'),
+                child: LoginPage(),
               ),
             ),
           ],
