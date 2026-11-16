@@ -29,12 +29,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late final TextEditingController _email;
   late final TextEditingController _hp;
   late final TextEditingController _github;
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Edit Profil'),
-      ),
-    );
-  }
+@override
+void initState() {
+  super.initState();
+
+  _nama = TextEditingController(text: widget.nama);
+  _nim = TextEditingController(text: widget.nim);
+  _prodi = TextEditingController(text: widget.prodi);
+  _kelas = TextEditingController(text: widget.kelas);
+  _bio = TextEditingController(text: widget.bio);
+  _email = TextEditingController(text: widget.email);
+  _hp = TextEditingController(text: widget.hp);
+  _github = TextEditingController(text: widget.github);
+}
 }
